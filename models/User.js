@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose') // imports mongoose here
+//define how user data is structured 
 const UserSchema = new mongoose.Schema({
   microsoftId: {
     type: String,

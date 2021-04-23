@@ -3,7 +3,7 @@ const passport = require('passport')
 const config = require('../config/config')
 const router = express.Router()
 
-
+//Handles logins 
 router.get('/login',
   function(req, res, next) {
     passport.authenticate('azuread-openidconnect', 
@@ -20,7 +20,7 @@ router.get('/login',
     res.redirect('/todos');
 });
 
-router.get('/openid/return',
+router.get('/openid/return', //microsoft magic. allows us check if were logged in.
   function(req, res, next) {
     passport.authenticate('azuread-openidconnect', 
       { 
@@ -34,7 +34,7 @@ router.get('/openid/return',
     res.redirect('/todos');
   });
 
-router.post('/openid/return',
+router.post('/openid/return',//sets route for responding to a post
   function(req, res, next) {
     passport.authenticate('azuread-openidconnect', 
       { 
@@ -49,11 +49,11 @@ router.post('/openid/return',
   });
 
 
-router.get('/logout', function(req, res){
+router.get('/logout', function(req, res){ //ends session
   req.session.destroy(function(err) {
     req.logOut();
     res.redirect(config.destroySessionUrl);
   });
 });
 
-module.exports = router
+module.exports = router// exports this

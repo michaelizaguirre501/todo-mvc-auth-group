@@ -1,19 +1,19 @@
 exports.creds = {
     identityMetadata: 'https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration', 
 
-    clientID: '<add your own>',
+    clientID: 'ee7e48d9-883d-4602-99cd-9a3bc5f1d310',//registers app with microsoft
   
-    clientSecret: '<add your own>', 
+    clientSecret: 'I78-1.6z9F-M~FmamBftGW0hNd6EdT405a', //app password from microsoft
   
-    responseType: 'code id_token', 
+    responseType: 'code id_token', //responds with token to verify identity
   
-    responseMode: 'form_post', 
+    responseMode: 'form_post', // 
   
-    redirectUrl: 'http://localhost:2121/auth/openid/return', 
+    redirectUrl: 'https://todo-mvc-auth-group.mizaguirre.repl.co/auth/openid/return', //lets azure know where to send an authenticated user
   
-    allowHttpForRedirectUrl: true,
+    allowHttpForRedirectUrl: true, // 
   
-    validateIssuer: false,
+    validateIssuer: false, // 
   
     issuer: null,
   
@@ -30,18 +30,18 @@ exports.creds = {
   
     loggingLevel: false,
   
-    nonceLifetime: null,
+    nonceLifetime: null, 
   
     nonceMaxAmount: 5,
   
     clockSkew: null,
   };
   
-  exports.destroySessionUrl = 'http://localhost:2121';
+  exports.destroySessionUrl = 'https://todo-mvc-auth-group.mizaguirre.repl.co';// lets azure know where to send a non authenticated user
   
   exports.useMongoDBSessionStore = false;
   
   exports.databaseUri = 'mongodb://localhost/OIDCStrategy';
   
-  exports.mongoDBSessionMaxAge = 24 * 60 * 60;  
+  exports.mongoDBSessionMaxAge = 24 * 60 * 60;  //sets max time a sessions is active
   

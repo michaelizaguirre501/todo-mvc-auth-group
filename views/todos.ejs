@@ -10,23 +10,26 @@
 <body>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
+    <% todos.forEach( el => { %>      <!-- Iterating through each todo item from Database-->
+            <li class='todoItem' data-id='<%=el._id%>'><!--the object id from database is being stored as a data attribute to be used in dataset in main js -->
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
-
+  <!--Displays how many todos the user has left-->
     <h2><%= user.displayName %> has <%= left %> things left to do.</h2>
-
+  <!--Creates a form to submit todos-->
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'><!--sets todo item key for use in database -->
         <input type="submit">
     </form>
-
+    
+    <!-- Redirecting to logout page when clicking the logout button-->
     <a href="../auth/logout">Logout</a>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js"></script> <!--links to our client side main.js file -->
 </body>
 </html>
+
+<!-- -->

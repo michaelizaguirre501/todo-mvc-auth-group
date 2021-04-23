@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-
+const mongoose = require('mongoose')//imports mongoose
+// defines how todo data is structured in DB 
 const TodoSchema = new mongoose.Schema({
   todo: {
     type: String,
@@ -15,4 +15,5 @@ const TodoSchema = new mongoose.Schema({
   }
 })
 
+// Exporting 
 module.exports = mongoose.model('Todo', TodoSchema)
